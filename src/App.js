@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+// Hooks
 
-function App() {
+import React, { useState } from "react";
+import Header from "./Header";
+
+const App = () => {
+  const [liczba, zmianaStanu] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header myProps={liczba}></Header>
+      <div onClick={() => zmianaStanu(liczba - 1)}>-</div>
+      <div onClick={() => zmianaStanu(liczba + 1)}>+</div>
+      <div>{liczba}</div>
+    </>
   );
-}
+};
 
 export default App;
